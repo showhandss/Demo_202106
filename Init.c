@@ -7,8 +7,8 @@ typedef struct randomSongList RSL;
 //  Data struct of song(with Name, Singer's name and its Time).
 typedef struct music
 {
-    char Name[20];
-    char Singer[20];
+    char Name[40];
+    char Singer[40];
     int Time;
 }Music;
 

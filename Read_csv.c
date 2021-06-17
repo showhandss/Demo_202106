@@ -26,7 +26,6 @@ int Read_csv(Music *ALL)
             //printf("%s|%s|%d\n",ALL[Current].Name,ALL[Current].Singer,ALL[Current].Time);
             Current++;              // which means the info was imported successfully.
         }
-        printf("%s\n",IN);
 		fclose(fp);
 		fp = NULL;
         return Current;
