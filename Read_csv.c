@@ -23,7 +23,7 @@ int Read_csv(Music *ALL)
             strcpy(ALL[Current].Name, strtok(IN, ","));
             strcpy(ALL[Current].Singer, strtok(NULL, ","));
             ALL[Current].Time = atoi(strtok(NULL, ""));
-            //printf("%s|%s|%d\n",MusicS[Current].Name,MusicS[Current].Singer,MusicSs[Current].Time);
+            //printf("%s|%s|%d\n",ALL[Current].Name,ALL[Current].Singer,ALL[Current].Time);
             Current++;              // which means the info was imported successfully.
         }
         printf("%s\n",IN);
