@@ -7,7 +7,7 @@ Music MusicS[10000];                // Global var. Using to save songs' informat
 int Song_num;                       // The number of songs in csv.
 
 // import the exact csv(return the number of songs  Or fail by -1)
-int Read_csv()
+int Read_csv(Music *ALL)
 {
                  
     FILE* fp = NULL;                // import File
@@ -20,9 +20,9 @@ int Read_csv()
         int Current = 0;            // current number
         while((fgets(IN, 100, fp))!=NULL)
         {
-            strcpy(MusicS[Current].Name, strtok(IN, ","));
-            strcpy(MusicS[Current].Singer, strtok(NULL, ","));
-            MusicS[Current].Time = atoi(strtok(NULL, ""));
+            strcpy(ALL[Current].Name, strtok(IN, ","));
+            strcpy(ALL[Current].Singer, strtok(NULL, ","));
+            ALL[Current].Time = atoi(strtok(NULL, ""));
             //printf("%s|%s|%d\n",MusicS[Current].Name,MusicS[Current].Singer,MusicSs[Current].Time);
             Current++;              // which means the info was imported successfully.
         }

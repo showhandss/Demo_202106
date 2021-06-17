@@ -23,7 +23,7 @@ int Search(char *Singer)
             now++;
         }
     }
-    if(len != 0)
+    if(now != 0)
     {
         printf("%20s的歌曲有:\n",Singer);
         Print_csv(Target, now);
