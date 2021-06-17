@@ -3,8 +3,11 @@
 #include <string.h>
 #include "Init.c"
 
+Music MusicS[10000];                // Global var. Using to save songs' information in array type.  
+int Song_num;                       // The number of songs in csv.
+
 // import the exact csv(return the number of songs  Or fail by -1)
-int Read_csv(Music *ALL)
+int Read_csv()
 {
                  
     FILE* fp = NULL;                // import File
@@ -15,14 +18,13 @@ int Read_csv(Music *ALL)
         char IN[100];
         
         int Current = 0;            // current number
-        while((fscanf(fp, "%[^\n]", IN))!=EOF)
+        while((fgets(IN, 100, fp))!=NULL)
         {
-            strcpy(ALL[Current].Name, strtok(IN, ","));
-            strcpy(ALL[Current].Singer, strtok(NULL, ","));
-            ALL[Current].Time = atoi(strtok(NULL, "\n"));
-            printf("%s,%s,%d\n",ALL[Current].Name,ALL[Current].Singer,ALL[Current].Time);
+            strcpy(MusicS[Current].Name, strtok(IN, ","));
+            strcpy(MusicS[Current].Singer, strtok(NULL, ","));
+            MusicS[Current].Time = atoi(strtok(NULL, ""));
+            //printf("%s|%s|%d\n",MusicS[Current].Name,MusicS[Current].Singer,MusicSs[Current].Time);
             Current++;              // which means the info was imported successfully.
-            char IN[100];
         }
         printf("%s\n",IN);
 		fclose(fp);
