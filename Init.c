@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 typedef struct music Music;
-typedef struct randomSongList RSL;
+//typedef struct randomSongList RSL;
 
 //  Data struct of song(with Name, Singer's name and its Time).
 typedef struct music
@@ -13,8 +13,8 @@ typedef struct music
 }Music;
 
 //  Recommended for random playlists(because of its linklist type).
-typedef struct randomSongList
-{
-    Music *Cur;
-    RSL *Next;
-}RSL;
+// typedef struct randomSongList
+// {
+//     Music *Cur;
+//     RSL *Next;
+// }RSL;

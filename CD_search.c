@@ -1,31 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Read_csv.c"
+//#include "Init.c"
+//#include "Read_csv.c"
 
-// Music MusicS[10000];                // Global var. Using to save songs' information in array type.  
-// int Song_num;                       // The number of songs in csv.
+extern Music MusicS[10000];                // Global var. Using to save songs' information in array type.  
+extern int Song_num;                       // The number of songs in csv.
 
-int Search();
+int CD_search();
+int Search(char*);
 void Print_csv(Music*, int);
 void Print_csv_row(int);
 void Show_all();
 
 // Query the input of the singer in total which songs will be printed after sorting the songs.
-int Search()
+int Search(char *Sin)
 {
-    char Sin[30];
-    printf("è¯·è¾“å…¥æƒ³è¦æœç´¢çš„æ­Œæ›²ä½œè€…\nPlease enter the songwriter you want to search for!\n");
-    scanf("%[^\n]",Sin);
-    printf("20:%s\n",Sin);
+    //printf("19£º%s\n",Sin);
     Music Target[10000];
     int ii = 0, now = 0;
+    //printf("Song_NUM:%d\n",Song_num);
     for(ii = 0; ii < Song_num; ii++)
     {
-        if(ii == 86)
-        {
-            printf("%s, %s, %d, %d, %d\n",Sin,MusicS[ii].Singer,Sin,MusicS[ii].Singer,strcmp(Sin, MusicS[ii].Singer));
-        }
+        //printf("%s|%s|%d\n",MusicS[ii].Name ,MusicS[ii].Singer,MusicS[ii].Time);
+        // if(ii == 86)
+        // {
+        //     printf("%s, %s, %d, %d, %d\n",Sin,MusicS[ii].Singer,Sin,MusicS[ii].Singer,strcmp(Sin, MusicS[ii].Singer));
+        // }
         if(strcmp(Sin, MusicS[ii].Singer) == 0)
         {
             Target[now] = MusicS[ii];
@@ -34,22 +35,31 @@ int Search()
     }
     if(now != 0)
     {
-        printf("%-20sçš„æ­Œæ›²æœ‰:\n",Sin);
+        printf("%-20sµÄ¸èÇúÓĞ:\n",Sin);
         Print_csv(Target, now);
     }
     else
     {
-        printf("ä¸å¥½æ„æ€ï¼ æ›²åº“å†…ä¸å­˜åœ¨è¿™ä¸ªä½œè€…çš„æ›²ç›®ã€‚\n");
+        printf("²»ºÃÒâË¼£¡ Çú¿âÄÚ²»´æÔÚÕâ¸ö×÷ÕßµÄÇúÄ¿¡£\n");
         printf("Sorry! The author's repertoire was not found in the library!\n");
     }
+    system("pause");
     return now;
+}
+
+// Show songs which are the head of lists.
+void Show_head(int num)
+{
+    Print_csv(MusicS, num);
+    system("pause");
 }
 
 // Show all songs.
 void Show_all()
 {
     //Print_csv(MusicS, Song_num);
-    Print_csv(MusicS, 300);
+    Print_csv(MusicS, Song_num);
+    system("pause");
 }
 
 // print csv
@@ -57,78 +67,82 @@ void Print_csv(Music *Tar, int len)
 {
     if(len == 0)    return ;
     int ii = 0;
-    printf("â•”");
+    printf("¨X");
     Print_csv_row(5);
-    printf("â•¦");
+    printf("¨j");
     Print_csv_row(60);
-    printf("â•¦");
+    printf("¨j");
     Print_csv_row(30);
-    printf("â•¦");
+    printf("¨j");
     Print_csv_row(10);
-    printf("â•—\n");
-    printf("â•‘%5sâ•‘%60sâ•‘%30sâ•‘%10sâ•‘\n", "No.", "Song", "Singer", "Time");
-    printf("â• ");
+    printf("¨[\n");
+    printf("¨U%5s¨U%60s¨U%30s¨U%10s¨U\n", "No.", "Song", "Singer", "Time");
+    printf("¨d");
     Print_csv_row(5);
-    printf("â•¬");
+    printf("¨p");
     Print_csv_row(60);
-    printf("â•¬");
+    printf("¨p");
     Print_csv_row(30);
-    printf("â•¬");
+    printf("¨p");
     Print_csv_row(10);
-    printf("â•£\n");
+    printf("¨g\n");
     for(ii = 0; ii < (len-1); ii++)
     {
-        if(Tar[ii].Singer[0] < 0)               // Chinese Singers
-        {
-            printf("â•‘%5dâ•‘%60sâ•‘", ii+1, Tar[ii].Name);
-            if(strlen(Tar[ii].Singer)  == 9)
-                printf("%33sâ•‘%10dâ•‘\n", Tar[ii].Singer, Tar[ii].Time);
-            else if(strlen(Tar[ii].Singer)  == 6)
-                printf("%32sâ•‘%10dâ•‘\n", Tar[ii].Singer, Tar[ii].Time);
-        }
-        else                                    // English Singers
-            printf("â•‘%5dâ•‘%60sâ•‘%30sâ•‘%10dâ•‘\n", ii+1, Tar[ii].Name, Tar[ii].Singer, Tar[ii].Time);
-        printf("â• ");
+        // if(Tar[ii].Singer[0] < 0)               // Chinese Singers
+        // {
+        //     printf("¨U%5d¨U%60s¨U", ii+1, Tar[ii].Name);
+        //     if(strlen(Tar[ii].Singer)  == 9)
+        //         printf("%31s¨U%10d¨U\n", Tar[ii].Singer, Tar[ii].Time);
+        //     else if(strlen(Tar[ii].Singer)  == 6)
+        //         printf("%30s¨U%10d¨U\n", Tar[ii].Singer, Tar[ii].Time);
+        // }
+        // else                                    // English Singers
+        printf("¨U%5d¨U%60s¨U%30s¨U%10d¨U\n", ii+1, Tar[ii].Name, Tar[ii].Singer, Tar[ii].Time);
+        printf("¨d");
         Print_csv_row(5);
-        printf("â•¬");
+        printf("¨p");
         Print_csv_row(60);
-        printf("â•¬");
+        printf("¨p");
         Print_csv_row(30);
-        printf("â•¬");
+        printf("¨p");
         Print_csv_row(10);
-        printf("â•£\n");
+        printf("¨g\n");
     }
-    printf("â•‘%5dâ•‘%60sâ•‘%30sâ•‘%10dâ•‘\n", ii+1, Tar[ii].Name, Tar[ii].Singer, Tar[ii].Time);
-    printf("â•š");
+    printf("¨U%5d¨U%60s¨U%30s¨U%10d¨U\n", ii+1, Tar[ii].Name, Tar[ii].Singer, Tar[ii].Time);
+    printf("¨^");
     Print_csv_row(5);
-    printf("â•©");
+    printf("¨m");
     Print_csv_row(60);
-    printf("â•©");
+    printf("¨m");
     Print_csv_row(30);
-    printf("â•©");
+    printf("¨m");
     Print_csv_row(10);
-    printf("â•\n");
+    printf("¨a\n");
+    printf("\n");           // do not delete this.Or it will make something wrong.
 }
-// â•” â• â•¦ â• â•—
-// â•‘   â•‘   â•‘
-// â•  â• â•¬ â• â•£
-// â•‘   â•‘   â•‘
-// â•š â• â•© â• â•
+// ¨X ¨T ¨j ¨T ¨[
+// ¨U   ¨U   ¨U
+// ¨d ¨T ¨p ¨T ¨g
+// ¨U   ¨U   ¨U
+// ¨^ ¨T ¨m ¨T ¨a
 
-// print â• (csv row)
+// print ¨T (csv row)
 void Print_csv_row(int len)
 {
     int ii = 0;
     for(ii = 0; ii < len; ii++)
-        printf("â•");
+        printf("¨T");
 }
 
-int main()
-{
-    Song_num = Read_csv(MusicS);
-    // printf("19:%d\n",Song_num);
-    // printf("20:%s,%s,%d\n", MusicS[0].Name, MusicS[0].Singer, MusicS[0].Time);
-    Search();     
-    //Show_all();
-    //printf("%s, %s, %d, %d, %d, %d\n","é»æ˜", MusicS[86].Singer, "é»æ˜", MusicS[86].Singer, strcmp("é»æ˜", MusicS[86].Singer), wcscmp("é»æ˜", MusicS[86].Singer));
-}
+// int main()
+// {
+//     Song_num = Read_csv(MusicS);
+//     char Sin[30];
+//     printf("ÇëÊäÈëÏëÒªËÑË÷µÄ¸èÇú×÷Õß\nPlease enter the songwriter you want to search for!\n");
+//     scanf("%[^\n]",&Sin);
+//     fflush(stdin); // Çå³ıİ”Èë¾Ğn…^
+//     printf("20:%s\n",Sin);
+//     Search(Sin);     
+//     //Show_all();
+//     //printf("%s, %s, %d, %d, %d, %d\n","ÀèÃ÷", MusicS[86].Singer, "ÀèÃ÷", MusicS[86].Singer, strcmp("ÀèÃ÷", MusicS[86].Singer), wcscmp("ÀèÃ÷", MusicS[86].Singer));
+// }
