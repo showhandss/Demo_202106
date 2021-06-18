@@ -35,7 +35,7 @@ int Search(char *Sin)
     }
     if(now != 0)
     {
-        printf("%-20s的歌曲有:\n",Sin);
+        printf("%s的歌曲有:\n",Sin);
         Print_csv(Target, now);
     }
     else
