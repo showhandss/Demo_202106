@@ -29,23 +29,23 @@ void FunctionRandomSong(Music arry[] , int length )
         Doarry[i]=arry[i];
     }
 
-    //printf("No                  Song                Singer              Time\n");//  ��
+    //printf("No                  Song                Singer              Time\n");//  ??
     for(;Max>0;Max--)
     {
         //printf("Max = %d \n",Max);
         Count++;
         randnum = rand() % Max ;   
-        //PrintData(Doarry[randnum] , Count); // ӡ��
+        //PrintData(Doarry[randnum] , Count); // ???
         if((Max!=1) && (randnum != (Max-1)))
         {
             SWAP(Doarry[randnum],Doarry[Max-1],temp);
         }       
     }
-    Print_csv(Doarry, length);
+    Print_csv(Doarry,0 , length);
     system("pause");
 }
 // void PrintData(Music show , int no)
 // {
-//     printf("%-20d%-20s%-20s%-20d \n",no,show.Name,show.Singer,show.Time); // ��
+//     printf("%-20d%-20s%-20s%-20d \n",no,show.Name,show.Singer,show.Time); // ??
 // }
 

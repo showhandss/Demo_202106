@@ -9,7 +9,7 @@ extern int Song_num;                       // The number of songs in csv.
 
 int CD_search();
 int Search(char*);
-void Print_csv(Music*, int);
+void Print_csv(Music*, int, int);
 void Print_csv_row(int);
 void Show_all();
 
@@ -36,7 +36,7 @@ int Search(char *Sin)
     if(now != 0)
     {
         printf("%sµÄ¸èÇúÓÐ:\n",Sin);
-        Print_csv(Target, now);
+        Print_csv(Target, 0, now);
     }
     else
     {
@@ -50,7 +50,13 @@ int Search(char *Sin)
 // Show songs which are the head of lists.
 void Show_head(int num)
 {
-    Print_csv(MusicS, num);
+    Print_csv(MusicS, 0, num);
+    system("pause");
+}
+
+void Show_tail(int num)
+{
+    Print_csv(MusicS,  num, Song_num);
     system("pause");
 }
 
@@ -58,12 +64,12 @@ void Show_head(int num)
 void Show_all()
 {
     //Print_csv(MusicS, Song_num);
-    Print_csv(MusicS, Song_num);
+    Print_csv(MusicS, 0, Song_num);
     system("pause");
 }
 
 // print csv
-void Print_csv(Music *Tar, int len)
+void Print_csv(Music *Tar,int start, int len)
 {
     if(len == 0)    return ;
     int ii = 0;
@@ -86,7 +92,7 @@ void Print_csv(Music *Tar, int len)
     printf("¨p");
     Print_csv_row(10);
     printf("¨g\n");
-    for(ii = 0; ii < (len-1); ii++)
+    for(ii = len - start; ii < (len-1); ii++)
     {
         // if(Tar[ii].Singer[0] < 0)               // Chinese Singers
         // {
