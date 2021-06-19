@@ -3,6 +3,7 @@
 #include "Init.c"
 #include "Read_csv.c"
 #include "CD_search.c"
+#include "Random_Play.c"
 
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -89,14 +90,14 @@ int Menu(char *buf)
 		//Song_num = Read_csv(MusicS);
 		//printf("Show all songs check\n");
 		fflush(stdin);
-		Show_all();							//預留接口 
+		Show_all();								//預留接口 
 		return 5;
 	}
 	else if(stricmp(buf, "Random Play") == 0)												//Random Play
 	{
 		printf("Random Play check\n");
 		fflush(stdin);
-		//RandomPlay();								//預留接口 
+		FunctionRandomSong(MusicS, Song_num);	//預留接口 
 		return 6;
 	}
 	else if(stricmp(buf, "Show Head") == 0)			// Hidden function
@@ -123,9 +124,17 @@ int Menu(char *buf)
 	}
 }
 
-int main(){
+int main(int argc, char* argv[]){
 	system("chcp 936");
 	
+	if(argc>1)
+	{
+		INPUT_FILE = argv[1];
+	}
+	else
+	{
+		INPUT_FILE = "D:\\gitmaker\\Demo_202106\\MUSIC.csv";
+	}
 	
 	while(1){
 		char act[25];

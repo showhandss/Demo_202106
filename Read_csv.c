@@ -6,12 +6,13 @@
 Music MusicS[10000];                // Global var. Using to save songs' information in array type.  
 int Song_num;                       // The number of songs in csv.
 
+
 // import the exact csv(return the number of songs  Or fail by -1)
 int Read_csv(Music *ALL)
 {
     //system("chcp 65001");       
     FILE* fp = NULL;                // import File
-    fp = fopen("D:\\gitmaker\\Demo_202106\\MUSIC.csv", "rt");
+    fp = fopen(INPUT_FILE, "rt");
     if (fp != NULL)
     {
         printf("Open success!\n");

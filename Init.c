@@ -3,6 +3,7 @@
 #include <string.h>
 typedef struct music Music;
 //typedef struct randomSongList RSL;
+char* INPUT_FILE;
 
 //  Data struct of song(with Name, Singer's name and its Time).
 typedef struct music
