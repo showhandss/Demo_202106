@@ -8,15 +8,8 @@
                  Need arry length to put in this function.
     ex: FunctionRandomSong( arry  ,  length);
 */
-// typedef struct Song{
-//     char Name[20];
-//     char Singer[20];
-//     int Time;
-// }Music;
 
 void FunctionRandomSong(Music arry[] , int length );
-//void PrintData(Music show , int no);
-
 
 void FunctionRandomSong(Music arry[] , int length )
 {
@@ -29,23 +22,17 @@ void FunctionRandomSong(Music arry[] , int length )
         Doarry[i]=arry[i];
     }
 
-    //printf("No                  Song                Singer              Time\n");//  ??
     for(;Max>0;Max--)
     {
         //printf("Max = %d \n",Max);
         Count++;
         randnum = rand() % Max ;   
-        //PrintData(Doarry[randnum] , Count); // ???
         if((Max!=1) && (randnum != (Max-1)))
         {
             SWAP(Doarry[randnum],Doarry[Max-1],temp);
         }       
     }
-    Print_csv(Doarry,0 , length);
+    Print_csv(Doarry, length, length);
+    printf("以上就是隨機播放列表!\nSo these are random playlists!\n");
     system("pause");
 }
-// void PrintData(Music show , int no)
-// {
-//     printf("%-20d%-20s%-20s%-20d \n",no,show.Name,show.Singer,show.Time); // ??
-// }
-

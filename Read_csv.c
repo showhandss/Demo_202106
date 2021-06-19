@@ -9,16 +9,16 @@ int Song_num;                       // The number of songs in csv.
 
 // import the exact csv(return the number of songs  Or fail by -1)
 int Read_csv(Music *ALL)
-{
-    //system("chcp 65001");       
+{       
     FILE* fp = NULL;                // import File
     fp = fopen(INPUT_FILE, "rt");
     if (fp != NULL)
     {
-        printf("Open success!\n");
+        printf("打開成功!|Open success!\n");
         char IN[100];
         
         int Current = 0;            // current number
+        //printf("%s\n",fgets(IN, 100, fp));
         while((fgets(IN, 100, fp))!=NULL)
         {
             int name_len;           // calculate the length of song name to deal with quotation mark of singer
@@ -48,12 +48,13 @@ int Read_csv(Music *ALL)
         }
 		fclose(fp);
 		fp = NULL;
-        printf("There are %d songs in all.\n",Current);
+        printf("此數據庫總共包含%d首歌。\nThere are %d songs in all.\n",Current,Current);
         return Current;
     }
     else
     {
-        printf("Cannot find the List of Songs!\nPlease find out the exact file.\n");
+        printf("找不到歌曲列表!请找出确切的文件。\n");
+        printf("Cannot find the List of Songs!Please find out the exact file.\n");
         fclose(fp);
         return 0;
     }

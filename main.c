@@ -79,7 +79,7 @@ int Menu(char *buf)
 	{
 		//printf("Exit check\n");
 		int NUM;
-		printf("Please enter the number of songs to display at the top:");
+		printf("請鍵入想要顯示的頂端歌曲數量\nPlease enter the number of songs to display at the top:");
 		scanf("%d",&NUM);
 		fflush(stdin);
 		Show_head(NUM);							//預留接口 
@@ -89,7 +89,7 @@ int Menu(char *buf)
 	{
 		//printf("Exit check\n");
 		int NUM;
-		printf("Please enter the number of songs to display at the below:");
+		printf("請鍵入想要顯示的底端歌曲數量\nPlease enter the number of songs to display at the below:");
 		scanf("%d",&NUM);
 		fflush(stdin);
 		Show_tail(NUM);							//預留接口 
@@ -98,7 +98,7 @@ int Menu(char *buf)
 	else if(stricmp(buf, "Exit") == 0)														//Exit
 	{
 		//printf("Exit check\n");
-		printf("Byebye\n");
+		printf("歡迎下次使用\nByebye\n");
 		return 0;
 	}
 	else																						//Null

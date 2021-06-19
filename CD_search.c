@@ -50,7 +50,7 @@ int Search(char *Sin)
 // Show songs which are the head of lists.
 void Show_head(int num)
 {
-    Print_csv(MusicS, 0, num);
+    Print_csv(MusicS, num, num);
     system("pause");
 }
 
@@ -64,7 +64,7 @@ void Show_tail(int num)
 void Show_all()
 {
     //Print_csv(MusicS, Song_num);
-    Print_csv(MusicS, 0, Song_num);
+    Print_csv(MusicS, Song_num, Song_num);
     system("pause");
 }
 
