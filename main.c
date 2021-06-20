@@ -54,7 +54,7 @@ int Menu(char *buf)
 	{
 		char singer[30];
 		//printf("Search check\n");
-		puts("Please enter Singer's name! ex.( Butter )");
+		puts("请输入歌手的名字！|Please enter Singer's name! (ex. Taylor Swift )");
 		scanf("%[^\n]",singer);
 		fflush(stdin);
 		//printf("singer═ %s  數值測試\n",singer);		//test scanf value

@@ -7,7 +7,6 @@
 extern Music MusicS[10000];                // Global var. Using to save songs' information in array type.  
 extern int Song_num;                       // The number of songs in csv.
 
-int CD_search();
 int Search(char*);
 void Print_csv(Music*, int, int);
 void Print_csv_row(int);
@@ -36,7 +35,7 @@ int Search(char *Sin)
     if(now != 0)
     {
         printf("%sµÄ¸èÇúÓÐ:\n",Sin);
-        Print_csv(Target, 0, now);
+        Print_csv(Target, now, now);
     }
     else
     {
@@ -69,7 +68,7 @@ void Show_all()
 }
 
 // print csv
-void Print_csv(Music *Tar,int start, int len)
+void Print_csv(Music *Tar,int len, int End)
 {
     if(len == 0)    return ;
     int ii = 0;
@@ -92,7 +91,7 @@ void Print_csv(Music *Tar,int start, int len)
     printf("¨p");
     Print_csv_row(10);
     printf("¨g\n");
-    for(ii = len - start; ii < (len-1); ii++)
+    for(ii = End - len; ii < (End-1); ii++)
     {
         // if(Tar[ii].Singer[0] < 0)               // Chinese Singers
         // {

@@ -13,7 +13,7 @@ void Modify()
 {
 	char name[60],singer[30],part[20];
 	int time,point = 0,ii,jj;
-	printf("Please enter the song information to be modified:\n");
+	printf("請鍵入您想要更改的歌曲信息\nPlease enter the song information to be modified:\n");
 	printf("Name:");
 	scanf("%[^\n]",name);
 	fflush(stdin);

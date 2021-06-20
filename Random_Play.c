@@ -14,7 +14,7 @@ void FunctionRandomSong(Music arry[] , int length );
 void FunctionRandomSong(Music arry[] , int length )
 {
     Music Doarry[length], temp;
-    printf("Now it's random time\n");
+    printf("是时候大干一场了!\nNow it's random time!\n");
     int i,Max=length,randnum ,Count=0;
     srand(time(NULL));
     for(i=0;i<Max;i++)
