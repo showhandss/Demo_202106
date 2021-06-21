@@ -65,12 +65,13 @@ void Show_all()
         SHOW[i]=MusicS[i];
     }
     int ii,jj;
+    // bubble sort
     for(ii = 0; ii < Song_num;ii++)
     {
         for(jj = ii + 1;jj < Song_num;jj++)
         {
-            if(strcmp(SHOW[ii].Singer , SHOW[jj].Singer) > 0)
-                SWAP(SHOW[ii],SHOW[jj],temp);
+            if(strcmp(SHOW[ii].Singer , SHOW[jj].Singer) > 0)   // if the char in string is larger (Z>A) 
+                SWAP(SHOW[ii],SHOW[jj],temp);                   // SWAP
         }
     }
     Print_csv(SHOW, Song_num, Song_num);
