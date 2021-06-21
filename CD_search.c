@@ -3,6 +3,8 @@
 #include <string.h>
 //#include "Init.c"
 //#include "Read_csv.c"
+#define SWAP(x, y, t) { (t) = (x) ; (x) = (y) ; (y) = (t);}
+
 
 extern Music MusicS[10000];                // Global var. Using to save songs' information in array type.  
 extern int Song_num;                       // The number of songs in csv.
@@ -56,7 +58,22 @@ void Show_tail(int num)
 void Show_all()
 {
     //Print_csv(MusicS, Song_num);
-    Print_csv(MusicS, Song_num, Song_num);
+    Music SHOW[10000],temp;
+    // Sort this.
+    for(int i=0;i<Song_num;i++)
+    {
+        SHOW[i]=MusicS[i];
+    }
+    int ii,jj;
+    for(ii = 0; ii < Song_num;ii++)
+    {
+        for(jj = ii + 1;jj < Song_num;jj++)
+        {
+            if(strcmp(SHOW[ii].Singer , SHOW[jj].Singer) > 0)
+                SWAP(SHOW[ii],SHOW[jj],temp);
+        }
+    }
+    Print_csv(SHOW, Song_num, Song_num);
     system("pause");
 }
 

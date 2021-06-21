@@ -18,6 +18,8 @@ int Read_csv(Music *ALL)
         char IN[100];
         
         int Current = 0;            // current number
+        // memset(SingerS,0,sizeof(SL)*4);
+        // Singer_num = 0;
         while((fgets(IN, 100, fp))!=NULL)
         {
             int name_len;           // calculate the length of song name to deal with quotation mark of singer
@@ -43,6 +45,30 @@ int Read_csv(Music *ALL)
             
             ALL[Current].Time = atoi(strtok(NULL, ","));
             Current++;              // which means the info was imported successfully.
+
+            /////////////////////////////////////////////////////////////////////////
+
+            // int ii = 0, isExist = 0;
+            // for(ii = 0; ii < Singer_num;ii++)
+            // {
+            //     if(strcmp(ALL[Current].Singer, SingerS[ii].Singer) == 0)
+            //     {
+            //         isExist++;
+            //         break;
+            //     }
+            // }
+            // if(isExist!=0)
+            // {
+            //     SingerS[ii].MusicL[SingerS[ii].MusicN] = Current;
+            //     SingerS[ii].MusicN++;
+            // }
+            // else
+            // {
+            //     SingerS[Singer_num].MusicL[0]  = Current;
+            //     SingerS[Singer_num].MusicN = 1;
+            //     strcpy(SingerS[Singer_num].Singer , ALL[Current].Singer);
+            //     Singer_num++;
+            // }
         }
 		fclose(fp);
 		fp = NULL;
