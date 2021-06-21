@@ -15,17 +15,10 @@ void Show_all();
 // Query the input of the singer in total which songs will be printed after sorting the songs.
 int Search(char *Sin)
 {
-    //printf("19£º%s\n",Sin);
     Music Target[10000];
     int ii = 0, now = 0;
-    //printf("Song_NUM:%d\n",Song_num);
     for(ii = 0; ii < Song_num; ii++)
     {
-        //printf("%s|%s|%d\n",MusicS[ii].Name ,MusicS[ii].Singer,MusicS[ii].Time);
-        // if(ii == 86)
-        // {
-        //     printf("%s, %s, %d, %d, %d\n",Sin,MusicS[ii].Singer,Sin,MusicS[ii].Singer,strcmp(Sin, MusicS[ii].Singer));
-        // }
         if(strcmp(Sin, MusicS[ii].Singer) == 0)
         {
             Target[now] = MusicS[ii];
@@ -93,15 +86,6 @@ void Print_csv(Music *Tar,int len, int End)
     printf("¨g\n");
     for(ii = End - len; ii < (End-1); ii++)
     {
-        // if(Tar[ii].Singer[0] < 0)               // Chinese Singers
-        // {
-        //     printf("¨U%5d¨U%60s¨U", ii+1, Tar[ii].Name);
-        //     if(strlen(Tar[ii].Singer)  == 9)
-        //         printf("%31s¨U%10d¨U\n", Tar[ii].Singer, Tar[ii].Time);
-        //     else if(strlen(Tar[ii].Singer)  == 6)
-        //         printf("%30s¨U%10d¨U\n", Tar[ii].Singer, Tar[ii].Time);
-        // }
-        // else                                    // English Singers
         printf("¨U%5d¨U%60s¨U%30s¨U%10d¨U\n", ii+1, Tar[ii].Name, Tar[ii].Singer, Tar[ii].Time);
         printf("¨d");
         Print_csv_row(5);

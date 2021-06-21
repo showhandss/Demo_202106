@@ -18,7 +18,6 @@ int Read_csv(Music *ALL)
         char IN[100];
         
         int Current = 0;            // current number
-        //printf("%s\n",fgets(IN, 100, fp));
         while((fgets(IN, 100, fp))!=NULL)
         {
             int name_len;           // calculate the length of song name to deal with quotation mark of singer
@@ -43,7 +42,6 @@ int Read_csv(Music *ALL)
             }  
             
             ALL[Current].Time = atoi(strtok(NULL, ","));
-            //printf("%s|%s|%d\n",ALL[Current].Name,ALL[Current].Singer,ALL[Current].Time);
             Current++;              // which means the info was imported successfully.
         }
 		fclose(fp);

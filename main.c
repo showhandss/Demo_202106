@@ -14,7 +14,6 @@
 
 int Menu(char *buf)
 {
-	//char buf[25];
 	char singer[100];
 	char songName[100];
 	int sLong;
@@ -22,12 +21,11 @@ int Menu(char *buf)
 
 	//system("chcp 936");
 	system("cls");
-	Song_num = Read_csv(MusicS);
 	printf("您選擇了 %s 功能\n",buf);
 	
 	if(stricmp(buf, "Add") == 0)																//Add
 	{
-		count++;
+		Song_num = Read_csv(MusicS);
 		//printf("add check\n");
 		fflush(stdin); // 清除輸入緩衝區
 		Add();			//預留接口 
@@ -36,6 +34,7 @@ int Menu(char *buf)
 	}
 	else if(stricmp(buf, "Delete") == 0)														//Delete
 	{
+		Song_num = Read_csv(MusicS);
 		//printf("delete check\n");
 		fflush(stdin); // 清除輸入緩衝區
 		Delete();			//預留接口 
@@ -44,6 +43,7 @@ int Menu(char *buf)
 	}
 	else if(stricmp(buf, "Modify") == 0)														//Modify
 	{
+		Song_num = Read_csv(MusicS);
 		//printf("Modify check\n");
 		fflush(stdin);
 		Modify();			//預留接口 
@@ -52,17 +52,18 @@ int Menu(char *buf)
 	}
 	else if(stricmp(buf, "Search") == 0)														//Search
 	{
+		Song_num = Read_csv(MusicS);
 		char singer[30];
 		//printf("Search check\n");
 		puts("请输入歌手的名字！|Please enter Singer's name! (ex. Taylor Swift )");
 		scanf("%[^\n]",singer);
 		fflush(stdin);
-		//printf("singer═ %s  數值測試\n",singer);		//test scanf value
 		Search(singer);							//預留接口 
 		return 4;
 	}
 	else if(stricmp(buf, "Show all songs") == 0)											//Show all songs
 	{
+		Song_num = Read_csv(MusicS);
 		//printf("Show all songs check\n");
 		fflush(stdin);
 		Show_all();								//預留接口 
@@ -70,6 +71,7 @@ int Menu(char *buf)
 	}
 	else if(stricmp(buf, "Random Play") == 0)												//Random Play
 	{
+		Song_num = Read_csv(MusicS);
 		//printf("Random Play check\n");
 		fflush(stdin);
 		FunctionRandomSong(MusicS, Song_num);	//預留接口 
@@ -77,6 +79,7 @@ int Menu(char *buf)
 	}
 	else if(stricmp(buf, "Show Head") == 0)			// Hidden function
 	{
+		Song_num = Read_csv(MusicS);
 		//printf("Exit check\n");
 		int NUM;
 		printf("請鍵入想要顯示的頂端歌曲數量\nPlease enter the number of songs to display at the top:");
@@ -87,6 +90,7 @@ int Menu(char *buf)
 	}
 	else if(stricmp(buf, "Show tail") == 0)			// Hidden function
 	{
+		Song_num = Read_csv(MusicS);
 		//printf("Exit check\n");
 		int NUM;
 		printf("請鍵入想要顯示的底端歌曲數量\nPlease enter the number of songs to display at the below:");
@@ -99,12 +103,14 @@ int Menu(char *buf)
 	{
 		//printf("Exit check\n");
 		printf("歡迎下次使用\nByebye\n");
-		return 0;
+		return 0;							//?^肚0闽超 
 	}
 	else																						//Null
 	{
-		system("cls");
+		
 		printf("沒有您輸入的 %s 功能\n請重新輸入\n",buf);
+		system("pause");
+		system("cls");
 		fflush(stdin); // 清除輸入緩衝區
 		return -1;
 	}
@@ -119,7 +125,6 @@ int main(int argc, char* argv[]){
 	}
 	else
 	{
-		//INPUT_FILE = "D:\\gitmaker\\Demo_202106\\MUSIC.csv";
 		INPUT_FILE = "MUSIC.csv";
 	}
 	

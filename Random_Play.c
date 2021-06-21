@@ -24,7 +24,6 @@ void FunctionRandomSong(Music arry[] , int length )
 
     for(;Max>0;Max--)
     {
-        //printf("Max = %d \n",Max);
         Count++;
         randnum = rand() % Max ;   
         if((Max!=1) && (randnum != (Max-1)))
