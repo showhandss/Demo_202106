@@ -6,6 +6,6 @@
 #### 资料结构期末作业
 #### 编译时请直接gcc main.c -o main
 ####
-#### 运行时 可直接 './main.exe' 
+#### 运行时 可直接 ```./main.exe``` 
 #### 软件将会自动读取文件夹内的MUSIC.csv
-#### 如果要测试别的csv档 只需要运行时改成 './main.exe FILE_NAME.csv' 即可
+#### 如果要测试别的csv档 只需要运行时改成 ```./main.exe FILE_NAME.csv``` 即可
